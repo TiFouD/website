@@ -1,0 +1,6 @@
+This favicon was generated using the following font:
+
+- Font Title: Intel One Mono
+- Font Author: undefined
+- Font Source: https://fonts.gstatic.com/s/intelonemono/v2/P5sWzZuLY8Lb_G1RikFkwPjBvuM8LXucmoHDSAMg__cRnD9TMr2nYA.ttf
+- Font License: undefined)

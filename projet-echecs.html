@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Portfolio - Théo Asselin</title>
+    <link rel="icon" type="image/png" href="assets/images/favicon-32x32.png" />
+    <link rel="stylesheet" href="css/style.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <header>
+      <h1>Théo Asselin</h1>
+      <nav>
+        <div class="hamburger-menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
+        <ul>
+          <ul>
+            <li><a href="index.html#a-propos">À propos</a></li>
+            <li><a href="index.html#experiences">Expériences</a></li>
+            <li><a href="index.html#projets">Projets</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <main>
+        <article class="project-detail">
+          <h1>Jeu d'échecs (Java)</h1>
+
+          <div class="project-meta">
+            <span><strong>Date:</strong> 2024</span>
+            <span
+              ><strong>Technologies:</strong> Java, Programmation Objet,
+              IA</span
+            >
+          </div>
+
+          <img
+            src="assets/images/placeholder-project.png"
+            alt="Interface du jeu d'échecs"
+            class="project-hero-image"
+          />
+
+          <div class="project-content">
+            <h2>Objectif du projet</h2>
+            <p>
+              Développement d'un jeu d'échecs en Java, intégrant une interface
+              graphique et une intelligence artificielle pour jouer contre
+              l'ordinateur.
+            </p>
+
+            <h2>Mise en œuvre technique</h2>
+            <p>
+              Le projet met en œuvre des algorithmes de recherche de chemin et
+              de minimax pour les mouvements des pièces. Le code utilise les
+              concepts de la programmation orientée objet pour modéliser les
+              pièces et le plateau de jeu.
+            </p>
+            <ul>
+              <li>
+                Implémentation d'une interface graphique utilisateur (GUI) avec
+                Swing.
+              </li>
+              <li>
+                Utilisation de l'algorithme Minimax avec élagage Alpha-Beta pour
+                l'IA.
+              </li>
+              <li>
+                Gestion des règles du jeu d'échecs (mouvements, échecs, mats,
+                etc.).
+              </li>
+            </ul>
+          </div>
+
+          <a href="index.html#projets" class="back-link">Retour aux projets</a>
+        </article>
+      </main>
+    </main>
+
+    <footer><p>&copy; 2025 Théo Asselin. Tous droits réservés.</p></footer>
+
+    <script src="js/script.js" defer></script>
+  </body>
+</html>

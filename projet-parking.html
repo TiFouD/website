@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Portfolio - Théo Asselin</title>
+    <link rel="icon" type="image/png" href="assets/images/favicon-32x32.png" />
+    <link rel="stylesheet" href="css/style.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <header>
+      <h1>Théo Asselin</h1>
+      <nav>
+        <div class="hamburger-menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
+        <ul>
+          <ul>
+            <li><a href="index.html#a-propos">À propos</a></li>
+            <li><a href="index.html#experiences">Expériences</a></li>
+            <li><a href="index.html#projets">Projets</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <main>
+        <article class="project-detail">
+          <h1>Simulateur de parking intelligent (C++)</h1>
+
+          <div class="project-meta">
+            <span><strong>Date:</strong> 2024</span>
+            <span
+              ><strong>Technologies:</strong> C++, Programmation Orientée
+              Objet</span
+            >
+          </div>
+
+          <img
+            src="assets/images/placeholder-project.png"
+            alt="Schéma du simulateur de parking"
+            class="project-hero-image"
+          />
+
+          <div class="project-content">
+            <h2>Objectif du projet</h2>
+            <p>
+              Ce projet universitaire consistait à développer un simulateur de
+              parking intelligent en C++. L'objectif était de modéliser et de
+              gérer efficacement les places de stationnement, les différents
+              types de véhicules, ainsi que la tarification en fonction de la
+              durée.
+            </p>
+
+            <h2>Mise en œuvre technique</h2>
+            <p>
+              L'implémentation repose sur les principes de la programmation
+              orientée objet pour modéliser les entités comme les véhicules, les
+              places, et le parking lui-même. Des structures de données avancées
+              ont été utilisées pour optimiser la recherche de places
+              disponibles, et des algorithmes de tri permettent une gestion
+              efficace des entrées et sorties.
+            </p>
+            <ul>
+              <li>
+                Modélisation des classes : `Vehicule`, `Place`, `Parking`.
+              </li>
+              <li>
+                Utilisation de conteneurs de la STL (Standard Template Library).
+              </li>
+              <li>
+                Implémentation d'une interface en console pour interagir avec le
+                simulateur.
+              </li>
+            </ul>
+          </div>
+
+          <a href="index.html#projets" class="back-link">Retour aux projets</a>
+        </article>
+      </main>
+    </main>
+
+    <footer><p>&copy; 2025 Théo Asselin. Tous droits réservés.</p></footer>
+
+    <script src="js/script.js" defer></script>
+  </body>
+</html>

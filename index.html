@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Portfolio - Théo Asselin</title>
+    <link rel="icon" type="image/png" href="assets/images/favicon-32x32.png" />
+    <link rel="stylesheet" href="css/style.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <header>
+      <h1>Théo Asselin</h1>
+      <nav>
+        <div class="hamburger-menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
+        <ul>
+          <li><a href="#a-propos">À propos</a></li>
+          <li><a href="#experiences">Expériences</a></li>
+          <li><a href="#projets">Projets</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section id="a-propos" class="section-hidden">
+        <img
+          src="assets/images/profile.jpg"
+          alt="Une photo de moi, Théo Asselin"
+        />
+        <div>
+          <h2>À propos de moi</h2>
+          <p>
+            Fraîchement diplômé d'une licence en informatique et futur étudiant
+            en Master à l'université Lyon 1, je suis passionné par la conception
+            et le développement de solutions logicielles robustes. Mon
+            expérience la plus formatrice en tant que développeur C++, m'a
+            permis de travailler sur l'intégration d'API complexes et de
+            contribuer à un cycle de développement complet, de la programmation
+            à l'intégration continue avec Team City et GitHub.
+          </p>
+          <p>
+            Polyvalent et curieux, je possède de solides compétences en C++,
+            JavaScript et Python, et je suis particulièrement attiré par les
+            défis du DevOps et de la cybersécurité. Mes expériences à
+            l'international, notamment chez Disney World, m'ont apporté une
+            grande adaptabilité et une excellente communication, des atouts que
+            je souhaite mettre au service de projets innovants.
+          </p>
+        </div>
+      </section>
+
+      <section id="experiences" class="section-hidden">
+        <h2>Mon parcours</h2>
+        <div class="timeline">
+          <div class="timeline-item info-experience">
+            <div class="timeline-content">
+              <h3>Développeur logiciel C++ (Stagiaire)</h3>
+              <span class="timeline-date">Mai 2025 - Août 2025</span>
+              <p class="timeline-company">
+                Technodigit, part of Hexagon (Lyon)
+              </p>
+              <ul>
+                <li>Développement en C++, JavaScript et Python.</li>
+                <li>Intégration d'une API externe pour le scanner RTC360.</li>
+                <li>
+                  Mise en place de l'intégration continue avec Team City et
+                  GitHub.
+                </li>
+                <li>Écriture de tests unitaires (GTest) et suivi avec Jira.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <h3>Superviseur Escale</h3>
+              <span class="timeline-date">Mai 2024 - Aout 2025</span>
+              <p class="timeline-company">
+                Space Executive Handling (Aéroport de Lyon St-Exupéry)
+              </p>
+              <ul>
+                <li>
+                  Responsable des opérations au sol et représentation de
+                  compagnie aérienne.
+                </li>
+                <li>Supervision des opérations pour des vols privés.</li>
+                <li>
+                  Développement de compétences en résolution de problèmes et
+                  gestion des responsabilités.
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <h3>Cast Member</h3>
+              <span class="timeline-date">Août 2022 - Août 2023</span>
+              <p class="timeline-company">
+                The Walt Disney Company (Orlando, USA)
+              </p>
+              <ul>
+                <li>Vente de produits de luxe et conseil client.</li>
+                <li>
+                  Excellence dans la relation client dans un contexte
+                  international.
+                </li>
+                <li>
+                  Maîtrise parfaite de l'anglais, à l'oral comme à l'écrit.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="projets" class="section-hidden">
+        <h2>Mes Projets</h2>
+        <div class="projets-container">
+          <!-- Simulation de parking intelligent -->
+          <div class="projet-carte">
+            <h3>Simulateur de parking intelligent (C++)</h3>
+            <p>
+              Simulateur de parking intelligent développé en C++ pour
+              l'Université Lyon 1. Le projet comprend la gestion des places de
+              stationnement, la négociation des tarifs et la gestion des
+              véhicules. Il utilise des structures de données avancées et
+              implémente des algorithmes de tri et de recherche pour optimiser
+              la gestion des places.
+            </p>
+            <div class="projet-tags">
+              <span>C++</span>
+              <span>Programmation Objet</span>
+              <span>Université Lyon 1</span>
+            </div>
+            <div class="projet-liens">
+              <a href="projet-parking.html">Voir plus</a>
+            </div>
+          </div>
+
+          <!-- Jeu d'echecs -->
+          <div class="projet-carte">
+            <h3>Jeu d'échecs (Java)</h3>
+            <p>
+              Développement d'un jeu d'échecs en Java, intégrant une interface
+              graphique et une intelligence artificielle pour jouer contre
+              l'ordinateur. Le projet met en œuvre des algorithmes de recherche
+              de chemin et de minimax pour les mouvements des pièces. Le code
+              utilise les concepts de la programmation orientée objet pour
+              modéliser les pièces et le plateau de jeu.
+            </p>
+            <div class="projet-tags">
+              <span>Java</span>
+              <span>Programmation Objet</span>
+              <span>Université Lyon 1</span>
+            </div>
+            <div class="projet-liens">
+              <a href="projet-echecs.html">Voir plus</a>
+            </div>
+          </div>
+
+          <!-- Challenge OWASP-->
+          <div class="projet-carte">
+            <h3>Challenge OWASP Juice-Shop</h3>
+            <p>
+              Réalisation du challenge OWASP Juice Shop, une initiative de
+              cybersécurité axée sur la découverte et l'exploitation des failles
+              d'une application web. Ce projet m'a servi d'introduction à la
+              cybersécurité, renforçant mes compétences en sécurité web et en
+              tests d'intrusion.
+            </p>
+            <div class="projet-tags">
+              <span>Cybersécurité</span>
+              <span>Web</span>
+              <span>Burp Suite</span>
+              <span>OWASP</span>
+            </div>
+            <div class="projet-liens">
+              <a href="project-owasp.html">Voir plus</a>
+            </div>
+          </div>
+
+          <!-- Pentest sur Metasploitable 2 -->
+          <div class="projet-carte">
+            <h3>Pentest sur Metasploitable 2</h3>
+            <p>
+              Test d'intrusion complet sur une machine virtuelle conçue pour
+              être vulnérable. Scan des ports avec NMAP et exploitation des
+              failles avec Metasploit.
+            </p>
+            <div class="projet-tags">
+              <span>Pentesting</span>
+              <span>NMAP</span>
+              <span>Metasploit</span>
+            </div>
+            <div class="projet-liens">
+              <a href="project-metasploitable2.html">Voir plus</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="section-hidden">
+        <div class="contact-container">
+          <div class="contact-info">
+            <h2>Me Contacter</h2>
+            <p>
+              Je suis toujours ouvert à la discussion pour une opportunité ou un
+              simple échange. N'hésitez pas à m'envoyer un message !
+            </p>
+            <div class="liens-sociaux">
+              <a
+                href="https://www.linkedin.com/in/theo-asselin/"
+                target="_blank"
+                aria-label="LinkedIn"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+                  ></path>
+                  <rect x="2" y="9" width="4" height="12"></rect>
+                  <circle cx="4" cy="4" r="2"></circle>
+                </svg>
+              </a>
+              <a
+                href="https://github.com/TiFouD"
+                target="_blank"
+                aria-label="GitHub"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+                  ></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <form
+            id="contact-form"
+            action="https://formspree.io/f/mvgqqvda"
+            method="POST"
+          >
+            <div class="form-group">
+              <label for="name">Votre nom</label>
+              <input type="text" id="name" name="name" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Votre email</label>
+              <input type="email" id="email" name="_replyto" required />
+            </div>
+            <div class="form-group">
+              <label for="message">Votre message</label>
+              <textarea
+                id="message"
+                name="message"
+                rows="5"
+                required
+              ></textarea>
+            </div>
+            <button type="submit">Envoyer</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer><p>&copy; 2025 Théo Asselin. Tous droits réservés.</p></footer>
+
+    <script src="js/script.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,612 @@
+/* Basic reset and default font */
+body {
+  font-family: sans-serif;
+  margin: 0;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+/* Add Lato font */
+.lato-thin {
+  font-family: 'Lato', sans-serif;
+  font-weight: 100;
+  font-style: normal;
+}
+
+.lato-light {
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.lato-regular {
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.lato-bold {
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.lato-black {
+  font-family: 'Lato', sans-serif;
+  font-weight: 900;
+  font-style: normal;
+}
+
+.lato-thin-italic {
+  font-family: 'Lato', sans-serif;
+  font-weight: 100;
+  font-style: italic;
+}
+
+.lato-light-italic {
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.lato-regular-italic {
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.lato-bold-italic {
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
+.lato-black-italic {
+  font-family: 'Lato', sans-serif;
+  font-weight: 900;
+  font-style: italic;
+}
+
+/* Header style */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Navigation list style */
+header ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+/* List items style */
+header li {
+  margin-left: 30px;
+}
+
+/* Navigation links style */
+header a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+header a:hover {
+  color: #007bff;
+}
+
+/* --- "About" Section --- */
+#a-propos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 50px;
+  gap: 50px;
+}
+
+#a-propos img {
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+#a-propos div {
+  max-width: 600px;
+}
+
+#a-propos h2 {
+  font-size: 2.5em;
+}
+
+#a-propos p {
+  line-height: 1.6;
+}
+
+/* --- "Experiences" Section --- */
+#experiences {
+  padding: 80px 50px;
+  background-color: #fff;
+}
+
+#experiences h2 {
+  text-align: center;
+  margin-bottom: 50px;
+  font-size: 2.5em;
+}
+
+/* Main container of the timeline */
+.timeline {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* The vertical line in the middle of the timeline */
+.timeline::after {
+  content: '';
+  position: absolute;
+  width: 3px;
+  background-color: #007bff;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -1.5px;
+}
+
+/* Container for each timeline event (left and right) */
+.timeline-item {
+  padding: 10px 40px;
+  position: relative;
+  width: 50%;
+  box-sizing: border-box;
+}
+
+/* Positioning items on the left */
+.timeline-item:nth-child(odd) {
+  left: 0;
+}
+
+/* Positioning items on the right */
+.timeline-item:nth-child(even) {
+  left: 50%;
+}
+
+/* The circle on the timeline line */
+.timeline-item::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  right: -11.5px;
+  background-color: white;
+  border: 4px solid #007bff;
+  top: 25px;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+/* Adjusting the position of the circle for right items */
+.timeline-item:nth-child(even)::after {
+  left: -8.5px;
+}
+
+/* The content card for each event */
+.timeline-content {
+  padding: 20px 30px;
+  background-color: #f4f4f4;
+  position: relative;
+  border-radius: 8px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.timeline-content h3 {
+  margin-top: 0;
+}
+
+/* --- Style for the computer experience --- */
+.info-experience .timeline-content {
+  border-top: 4px solid #e67e22; /* Add a distinctive orange border */
+}
+
+.info-exp::after {
+  border-color: #e67e22;
+  background-color: #e67e22;
+}
+
+/* --- "Projects" Section --- */
+#projets {
+  padding: 80px 50px;
+  background-color: #f4f4f4;
+}
+
+#projets h2 {
+  text-align: center;
+  margin-bottom: 50px;
+  font-size: 2.5em;
+}
+
+.projets-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.projet-carte {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  padding: 25px;
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.projet-carte:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.projet-tags {
+  margin: auto 0 20px 0;
+}
+
+.projet-tags span {
+  background-color: #e0e0e0;
+  color: #333;
+  padding: 5px 10px;
+  border-radius: 15px;
+  font-size: 0.8em;
+  margin-right: 5px;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+.projet-liens a {
+  text-decoration: none;
+  color: #fff;
+  background-color: #007bff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.projet-liens a:hover {
+  background-color: #0056b3;
+}
+
+/* --- Contact Section --- */
+#contact {
+  padding: 80px 50px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#contact p {
+  max-width: 600px;
+  margin-bottom: 30px;
+}
+
+.bouton-contact {
+  text-decoration: none;
+  color: #fff;
+  background-color: #28a745;
+  padding: 15px 30px;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 1.1em;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.bouton-contact:hover {
+  background-color: #218838;
+  transform: scale(1.05);
+}
+
+.liens-sociaux {
+  margin-top: 40px;
+}
+
+.liens-sociaux a {
+  text-decoration: none;
+  color: #333;
+  margin: 0 15px;
+  font-weight: bold;
+}
+
+.liens-sociaux a:hover {
+  text-decoration: underline;
+}
+
+/* --- Footer --- */
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #333;
+  color: #fff;
+}
+
+/* --- Responsive Design & Hamburger Menu --- */
+
+/* We hide the hamburger icon on large screens by default */
+.hamburger-menu {
+  display: none;
+  cursor: pointer;
+}
+
+.hamburger-menu span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: #333;
+  margin: 5px 0;
+}
+
+/* We use a Media Query for screens of 768px or less */
+@media (max-width: 768px) {
+  /* We hide the classic navigation */
+  header nav ul {
+    display: none;
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
+  }
+
+  /* We make the hamburger icon appear */
+  .hamburger-menu {
+    display: block;
+  }
+
+  /* Style of the menu when it is active (open) */
+  header nav.nav-active ul {
+    display: flex;
+  }
+
+  body {
+    font-size: 16px;
+  }
+
+  /* We reduce the horizontal paddings to give more space to the content */
+  #a-propos,
+  #experiences,
+  #projets,
+  #contact {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  /* --- "About" Section --- */
+  #a-propos {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  #a-propos img {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 20px;
+  }
+
+  /* --- Experiences Timeline --- */
+  .timeline::after {
+    left: 20px;
+  }
+
+  .timeline-item {
+    width: 100%;
+    padding-left: 50px;
+    padding-right: 15px;
+  }
+
+  .timeline-item:nth-child(even),
+  .timeline-item:nth-child(odd) {
+    left: 0;
+  }
+
+  /* The ONLY rule for circles */
+  .timeline-item:nth-child(odd)::after,
+  .timeline-item:nth-child(even)::after {
+    left: 11.5px;
+    right: auto;
+    transform: none;
+  }
+
+  .contact-container {
+    flex-direction: column; /* Stack the columns vertically */
+    align-items: center; /* Center the columns */
+  }
+
+  #contact-form {
+    text-align: center;
+    width: 100%;
+  }
+
+  /* --- Font size adjustments for project detail pages on mobile --- */
+  .project-detail h1 {
+    /* Reduced from 2.8em */
+    font-size: 2.2em;
+  }
+
+  .project-content h2 {
+    /* Reduced from 1.8em */
+    font-size: 1.5em;
+  }
+
+  .project-content p,
+  .project-content ul {
+    /* Reduced from 1.1rem to match the body font size */
+    font-size: 1rem;
+  }
+}
+
+/* --- Scroll Animation --- */
+.section-hidden {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.section-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- Section Contact (Refactor) --- */
+#contact {
+  background-color: #fff;
+  padding: 80px 50px;
+}
+
+.contact-container {
+  display: flex;
+  gap: 50px; /* Space between the two columns */
+  max-width: 1100px;
+  margin: 0 auto;
+  align-items: flex-start;
+}
+
+.contact-info,
+#contact-form {
+  flex: 1; /* Each column takes 50% of the space */
+}
+
+.contact-info h2 {
+  font-size: 2.5em;
+  margin-top: 0;
+}
+
+.liens-sociaux {
+  margin-top: 25px;
+}
+
+.liens-sociaux a {
+  color: #333;
+  margin-right: 20px;
+  transition: color 0.3s ease;
+}
+
+.liens-sociaux a:hover {
+  color: #007bff;
+}
+
+/* Form style */
+#contact-form .form-group {
+  margin-bottom: 20px;
+}
+
+#contact-form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  font-size: 0.9em;
+}
+
+#contact-form input,
+#contact-form textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  box-sizing: border-box; /* Important so that the padding does not increase the width */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Improves UX by showing which field is selected */
+#contact-form input:focus,
+#contact-form textarea:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+#contact-form button {
+  width: 100%;
+  padding: 15px;
+  font-size: 1.1em;
+  font-weight: bold;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#contact-form button:hover {
+  background-color: #0056b3;
+}
+
+/* --- Project Detail Page Style --- */
+.project-detail {
+  /* This will style the main article container */
+  max-width: 900px;
+  margin: 40px auto; /* Add space top/bottom and center it */
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.project-detail h1 {
+  /* Style for the main project title */
+  font-size: 2.8em;
+  margin-bottom: 10px;
+}
+
+.project-meta {
+  /* Style for the metadata (date, tech) */
+  display: flex;
+  gap: 20px;
+  color: #666;
+  margin-bottom: 30px;
+  font-style: italic;
+}
+
+.project-hero-image {
+  /* Style for the main project image */
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 30px;
+}
+
+.project-content h2 {
+  /* Style for subheadings in the description */
+  font-size: 1.8em;
+  border-bottom: 2px solid #e0e0e0;
+  padding-bottom: 10px;
+  margin-top: 40px;
+}
+
+.project-content p,
+.project-content ul {
+  /* Style for the descriptive text */
+  line-height: 1.7;
+  font-size: 1.1rem;
+}
+
+.back-link {
+  /* Style for the "Back to projects" link */
+  display: inline-block;
+  margin-top: 40px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #007bff;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}

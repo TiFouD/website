@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Portfolio - Théo Asselin</title>
+    <link rel="icon" type="image/png" href="assets/images/favicon-32x32.png" />
+    <link rel="stylesheet" href="css/style.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <header>
+      <h1>Théo Asselin</h1>
+      <nav>
+        <div class="hamburger-menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
+        <ul>
+          <ul>
+            <li><a href="index.html#a-propos">À propos</a></li>
+            <li><a href="index.html#experiences">Expériences</a></li>
+            <li><a href="index.html#projets">Projets</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <main>
+        <article class="project-detail">
+          <h1>Pentest sur Metasploitable 2</h1>
+
+          <div class="project-meta">
+            <span><strong>Date:</strong> 2024</span>
+            <span
+              ><strong>Technologies:</strong> Pentesting, NMAP, Metasploit</span
+            >
+          </div>
+
+          <img
+            src="assets/images/placeholder-project.png"
+            alt="Schéma de Metasploitable 2"
+            class="project-hero-image"
+          />
+
+          <div class="project-content">
+            <h2>Objectif du projet</h2>
+            <p>
+              Test d'intrusion complet sur une machine virtuelle conçue pour
+              être vulnérable.
+            </p>
+
+            <h2>Mise en œuvre technique</h2>
+            <p>
+              Scan des ports avec NMAP et exploitation des failles avec
+              Metasploit.
+            </p>
+            <ul>
+              <li>Découverte des services vulnérables avec NMAP.</li>
+              <li>
+                Exploitation des vulnérabilités avec Metasploit Framework.
+              </li>
+              <li>
+                Rédaction d'un rapport de pentest détaillant les vulnérabilités
+                découvertes et les recommandations de sécurité.
+              </li>
+            </ul>
+          </div>
+
+          <a href="index.html#projets" class="back-link">Retour aux projets</a>
+        </article>
+      </main>
+    </main>
+
+    <footer><p>&copy; 2025 Théo Asselin. Tous droits réservés.</p></footer>
+
+    <script src="js/script.js" defer></script>
+  </body>
+</html>
