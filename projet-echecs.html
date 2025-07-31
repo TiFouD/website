@@ -40,49 +40,92 @@
     <main>
       <main>
         <article class="project-detail">
-          <h1>Jeu d'échecs (Java)</h1>
+          <h1>Jeu d'échecs avec IA (Java)</h1>
 
           <div class="project-meta">
-            <span><strong>Date:</strong> 2024</span>
+            <span><strong>Date:</strong> 2025</span>
             <span
-              ><strong>Technologies:</strong> Java, Programmation Objet,
-              IA</span
+              ><strong>Technologies:</strong> Java, Swing, POO, MVC,
+              Minimax</span
             >
           </div>
 
           <img
-            src="assets/images/placeholder-project.png"
-            alt="Interface du jeu d'échecs"
+            src="assets/images/chess-screenshot.png"
+            alt="Interface du jeu d'échecs en Java"
             class="project-hero-image"
           />
 
           <div class="project-content">
-            <h2>Objectif du projet</h2>
+            <h2>Architecture & Conception (MVC)</h2>
             <p>
-              Développement d'un jeu d'échecs en Java, intégrant une interface
-              graphique et une intelligence artificielle pour jouer contre
-              l'ordinateur.
+              Ce projet a été développé en Java en suivant une architecture
+              inspirée du modèle <strong>MVC (Modèle-Vue-Contrôleur)</strong>.
+              Cette approche garantit une séparation claire entre la logique du
+              jeu et son interface graphique. Le
+              <strong>Modèle</strong> (classes `Jeu`, `Plateau`, `Piece`) gère
+              l'état de la partie et toutes les règles, tandis que la
+              <strong>Vue/Contrôleur</strong> (`VueControleur`) s'occupe de
+              l'affichage et des interactions utilisateur. Pour assurer une mise
+              à jour efficace, le `Plateau` est `Observable` et notifie la
+              `VueControleur`, qui est `Observer`, de chaque changement d'état.
             </p>
 
-            <h2>Mise en œuvre technique</h2>
+            <h2>Ma Contribution Spécifique</h2>
             <p>
-              Le projet met en œuvre des algorithmes de recherche de chemin et
-              de minimax pour les mouvements des pièces. Le code utilise les
-              concepts de la programmation orientée objet pour modéliser les
-              pièces et le plateau de jeu.
+              Au sein de notre équipe de deux, ma responsabilité principale a
+              été la conception et l'implémentation du cœur du jeu :
             </p>
             <ul>
               <li>
-                Implémentation d'une interface graphique utilisateur (GUI) avec
-                Swing.
+                <strong>Modélisation Orientée Objet :</strong> J'ai conçu la
+                classe abstraite `Piece.java` et toutes ses sous-classes
+                (`Pion`, `Tour`, `Roi`, etc.). Chaque classe encapsule ses
+                propres règles de déplacement complexes, y compris les cas
+                spéciaux comme le roque, la prise en passant ou la promotion du
+                pion.
               </li>
               <li>
-                Utilisation de l'algorithme Minimax avec élagage Alpha-Beta pour
-                l'IA.
+                <strong>Logique de Déplacement :</strong> La méthode
+                `getMesDeplacementsPossibles()` a été au centre de mon travail.
+                J'ai développé la logique pour que chaque pièce puisse calculer
+                et retourner la liste de tous ses mouvements légaux à partir
+                d'une position donnée.
               </li>
               <li>
-                Gestion des règles du jeu d'échecs (mouvements, échecs, mats,
-                etc.).
+                <strong>Interface et Affichage (Vue) :</strong> J'ai également
+                développé la partie affichage de `VueControleur`, responsable du
+                dessin de l'échiquier et de la mise à jour visuelle des pièces
+                (via `ImageIcon`) après chaque coup joué.
+              </li>
+            </ul>
+
+            <h2>Intelligence Artificielle</h2>
+            <p>
+              Pour offrir un adversaire à l'utilisateur, une IA a été
+              développée. Elle repose sur l'algorithme <strong>Minimax</strong>,
+              optimisé avec un élagage <strong>Alpha-Bêta</strong> pour réduire
+              l'espace de recherche. La performance de l'IA dépend d'une
+              fonction d'évaluation qui attribue un score à chaque position en
+              se basant sur la valeur matérielle des pièces et sur des tables de
+              positionnement (Piece-Square Tables) pour favoriser les placements
+              stratégiques.
+            </p>
+
+            <h2>Fonctionnalités Clés</h2>
+            <ul>
+              <li>Interface graphique complète développée avec Java Swing.</li>
+              <li>
+                Système de sauvegarde et de chargement de partie via un fichier
+                au format `.csv`.
+              </li>
+              <li>
+                Menu principal pour configurer une nouvelle partie (choix de la
+                couleur, niveau de difficulté de l'IA).
+              </li>
+              <li>
+                Validation des coups, incluant la détection d'auto-mise en échec
+                pour éviter les mouvements illégaux.
               </li>
             </ul>
           </div>

@@ -40,51 +40,83 @@
     <main>
       <main>
         <article class="project-detail">
-          <h1>Simulateur de parking intelligent (C++)</h1>
+          <h1>Simulateur de Parking Intelligent "Celeste" (C++)</h1>
 
           <div class="project-meta">
-            <span><strong>Date:</strong> 2024</span>
+            <span><strong>Date:</strong> 2025</span>
             <span
-              ><strong>Technologies:</strong> C++, Programmation Orientée
-              Objet</span
+              ><strong>Technologies:</strong> C++, SDL2, Programmation
+              Concurrente, Git</span
             >
           </div>
 
           <img
-            src="assets/images/placeholder-project.png"
-            alt="Schéma du simulateur de parking"
+            src="assets/images/parking-screenshot.png"
+            alt="Interface du simulateur de parking Celeste"
             class="project-hero-image"
           />
 
           <div class="project-content">
             <h2>Objectif du projet</h2>
             <p>
-              Ce projet universitaire consistait à développer un simulateur de
-              parking intelligent en C++. L'objectif était de modéliser et de
-              gérer efficacement les places de stationnement, les différents
-              types de véhicules, ainsi que la tarification en fonction de la
-              durée.
+              "Celeste" est un simulateur de gestion de parkings en C++ doté
+              d'une interface graphique réalisée avec la bibliothèque
+              <strong>SDL2</strong>. L'objectif était de modéliser et de
+              visualiser le comportement de véhicules dans un environnement
+              urbain, incluant leurs déplacements, leurs stratégies de recherche
+              de stationnement, et l'occupation des parkings en temps réel.
             </p>
 
-            <h2>Mise en œuvre technique</h2>
+            <h2>Architecture et Conception</h2>
             <p>
-              L'implémentation repose sur les principes de la programmation
-              orientée objet pour modéliser les entités comme les véhicules, les
-              places, et le parking lui-même. Des structures de données avancées
-              ont été utilisées pour optimiser la recherche de places
-              disponibles, et des algorithmes de tri permettent une gestion
-              efficace des entrées et sorties.
+              Le simulateur est construit sur une approche orientée objet
+              robuste, où chaque entité du monde (véhicule, parking, route) est
+              représentée par une classe. L'environnement de la simulation est
+              entièrement configurable via des fichiers de données au format
+              <strong>CSV</strong>, permettant de définir dynamiquement les
+              parkings, les routes et les points d'intérêt sans recompiler le
+              programme. Le cœur de l'application est une boucle principale qui
+              gère les événements utilisateur, met à jour l'état de chaque objet
+              de la simulation, et rafraîchit l'affichage graphique.
+            </p>
+
+            <h2>Défis Techniques et Apprentissages</h2>
+            <p>
+              Ce projet a été l'occasion de surmonter plusieurs défis techniques
+              complexes et d'acquérir des compétences approfondies :
             </p>
             <ul>
               <li>
-                Modélisation des classes : `Vehicule`, `Place`, `Parking`.
+                <strong>Programmation Concurrente :</strong> Le passage d'une
+                logique séquentielle à une programmation concurrente a introduit
+                des problèmes de <em>data races</em> complexes, notamment lors
+                de l'affichage des informations de négociation des véhicules. Ce
+                défi m'a forcé à débugger manuellement les accès concurrents et
+                à mieux comprendre l'utilisation des pointeurs intelligents
+                (<code>shared_ptr</code>) et des sections critiques.
               </li>
               <li>
-                Utilisation de conteneurs de la STL (Standard Template Library).
+                <strong>Algorithme de Négociation :</strong> J'ai conçu et
+                implémenté un algorithme de négociation entre les véhicules et
+                les parkings, en définissant les facteurs influençant les
+                décisions (budget, distance, etc.) et en adaptant son
+                implémentation aux contraintes de la concurrence.
               </li>
               <li>
-                Implémentation d'une interface en console pour interagir avec le
-                simulateur.
+                <strong>Maîtrise de Git :</strong> Ce projet m'a permis de
+                passer d'une utilisation basique de Git à une maîtrise avancée.
+                J'ai appris à gérer efficacement les conflits de fusion (merge
+                conflicts) et à utiliser l'outil de manière professionnelle, un
+                atout majeur pour tout projet de développement.
+              </li>
+              <li>
+                <strong>Manipulation de Données :</strong> J'ai implémenté la
+                lecture et l'analyse de fichiers CSV pour hydrater la
+                simulation. Cette expérience concrète m'a permis d'explorer
+                différentes stratégies de persistance de données, de comprendre
+                les avantages des bases de données SQL dans un contexte plus
+                large, et de choisir la solution la plus adaptée aux besoins du
+                projet.
               </li>
             </ul>
           </div>
