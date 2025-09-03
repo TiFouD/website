@@ -1,105 +1,81 @@
-/* Basic reset and default font */
+/* ==========================================================================
+   1. Global Styles & CSS Variables
+   ========================================================================== */
+
+:root {
+  /* This is where we define our design tokens (variables) */
+  --primary-color: #007bff;
+  --primary-color-dark: #0056b3;
+  --accent-color: #e67e22;
+  --text-color: #333;
+  --background-light: #fff;
+  --background-gray: #f4f4f4;
+  --font-main: 'Lato', sans-serif;
+}
+
 body {
-  font-family: sans-serif;
+  /* Apply global styles */
+  font-family: var(--font-main);
   margin: 0;
-  background-color: #f4f4f4;
-  color: #333;
+  background-color: var(--background-gray);
+  color: var(--text-color);
+  font-size: 16px;
+  line-height: 1.6;
 }
 
-/* Add Lato font */
-.lato-thin {
-  font-family: 'Lato', sans-serif;
-  font-weight: 100;
-  font-style: normal;
+h1, h2, h3 {
+  /* Basic typography reset for headings */
+  margin-top: 0;
 }
 
-.lato-light {
-  font-family: 'Lato', sans-serif;
-  font-weight: 300;
-  font-style: normal;
+section h2 {
+  /* Common style for all section titles */
+  text-align: center;
+  margin-bottom: 50px;
+  font-size: 2.5em;
 }
 
-.lato-regular {
-  font-family: 'Lato', sans-serif;
-  font-weight: 400;
-  font-style: normal;
-}
+/* ==========================================================================
+   2. Header & Navigation
+   ========================================================================== */
 
-.lato-bold {
-  font-family: 'Lato', sans-serif;
-  font-weight: 700;
-  font-style: normal;
-}
-
-.lato-black {
-  font-family: 'Lato', sans-serif;
-  font-weight: 900;
-  font-style: normal;
-}
-
-.lato-thin-italic {
-  font-family: 'Lato', sans-serif;
-  font-weight: 100;
-  font-style: italic;
-}
-
-.lato-light-italic {
-  font-family: 'Lato', sans-serif;
-  font-weight: 300;
-  font-style: italic;
-}
-
-.lato-regular-italic {
-  font-family: 'Lato', sans-serif;
-  font-weight: 400;
-  font-style: italic;
-}
-
-.lato-bold-italic {
-  font-family: 'Lato', sans-serif;
-  font-weight: 700;
-  font-style: italic;
-}
-
-.lato-black-italic {
-  font-family: 'Lato', sans-serif;
-  font-weight: 900;
-  font-style: italic;
-}
-
-/* Header style */
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 20px 50px;
-  background-color: #fff;
+  background-color: var(--background-light);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: sticky; /* Makes the header stick to the top */
+  top: 0;
+  z-index: 10;
 }
 
-/* Navigation list style */
-header ul {
+header nav ul {
   list-style: none;
   display: flex;
   margin: 0;
   padding: 0;
 }
 
-/* List items style */
-header li {
+header nav li {
   margin-left: 30px;
 }
 
-/* Navigation links style */
-header a {
+header nav a {
   text-decoration: none;
-  color: #333;
+  color: var(--text-color);
   font-weight: bold;
+  transition: color 0.3s ease;
 }
 
-header a:hover {
-  color: #007bff;
+header nav a:hover {
+  color: var(--primary-color);
 }
+
+/* ==========================================================================
+   3. Page Sections
+   ========================================================================== */
 
 /* --- "About" Section --- */
 #a-propos {
@@ -121,46 +97,67 @@ header a:hover {
   max-width: 600px;
 }
 
-#a-propos h2 {
-  font-size: 2.5em;
+/* --- "Skills" Section --- */
+#competences {
+  padding: 80px 50px;
+  background-color: var(--background-light);
 }
 
-#a-propos p {
-  line-height: 1.6;
+.competences-container {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
-/* --- "Experiences" Section --- */
+.competence-categorie {
+  background-color: var(--background-gray);
+  padding: 25px;
+  border-radius: 8px;
+  flex: 1;
+  min-width: 280px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.competence-categorie h3 {
+  border-bottom: 2px solid var(--primary-color);
+  padding-bottom: 10px;
+}
+
+.competence-categorie ul {
+  list-style: none;
+  padding: 0;
+}
+
+.competence-categorie li {
+  padding: 8px 0;
+}
+
+/* --- "Experiences" Section (Timeline) --- */
 #experiences {
   padding: 80px 50px;
-  background-color: #fff;
+  background-color: var(--background-light);
 }
 
-#experiences h2 {
-  text-align: center;
-  margin-bottom: 50px;
-  font-size: 2.5em;
-}
-
-/* Main container of the timeline */
 .timeline {
   position: relative;
   max-width: 1000px;
   margin: 0 auto;
 }
 
-/* The vertical line in the middle of the timeline */
 .timeline::after {
   content: '';
   position: absolute;
   width: 3px;
-  background-color: #007bff;
+  background-color: var(--primary-color);
   top: 0;
   bottom: 0;
   left: 50%;
   margin-left: -1.5px;
 }
 
-/* Container for each timeline event (left and right) */
 .timeline-item {
   padding: 10px 40px;
   position: relative;
@@ -168,17 +165,14 @@ header a:hover {
   box-sizing: border-box;
 }
 
-/* Positioning items on the left */
 .timeline-item:nth-child(odd) {
   left: 0;
 }
 
-/* Positioning items on the right */
 .timeline-item:nth-child(even) {
   left: 50%;
 }
 
-/* The circle on the timeline line */
 .timeline-item::after {
   content: '';
   position: absolute;
@@ -186,21 +180,19 @@ header a:hover {
   height: 20px;
   right: -11.5px;
   background-color: white;
-  border: 4px solid #007bff;
+  border: 4px solid var(--primary-color);
   top: 25px;
   border-radius: 50%;
   z-index: 1;
 }
 
-/* Adjusting the position of the circle for right items */
 .timeline-item:nth-child(even)::after {
   left: -8.5px;
 }
 
-/* The content card for each event */
 .timeline-content {
   padding: 20px 30px;
-  background-color: #f4f4f4;
+  background-color: var(--background-gray);
   position: relative;
   border-radius: 8px;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
@@ -210,26 +202,19 @@ header a:hover {
   margin-top: 0;
 }
 
-/* --- Style for the computer experience --- */
 .info-experience .timeline-content {
-  border-top: 4px solid #e67e22; /* Add a distinctive orange border */
+  border-top: 4px solid var(--accent-color);
 }
 
-.info-exp::after {
-  border-color: #e67e22;
-  background-color: #e67e22;
+.info-experience::after {
+  border-color: var(--accent-color);
+  background-color: var(--accent-color);
 }
 
-/* --- "Projects" Section --- */
+/* --- "Projects" Section (Cards) --- */
 #projets {
   padding: 80px 50px;
-  background-color: #f4f4f4;
-}
-
-#projets h2 {
-  text-align: center;
-  margin-bottom: 50px;
-  font-size: 2.5em;
+  background-color: var(--background-gray);
 }
 
 .projets-container {
@@ -240,7 +225,7 @@ header a:hover {
 }
 
 .projet-carte {
-  background-color: #fff;
+  background-color: var(--background-light);
   border-radius: 8px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   padding: 25px;
@@ -261,7 +246,7 @@ header a:hover {
 
 .projet-tags span {
   background-color: #e0e0e0;
-  color: #333;
+  color: var(--text-color);
   padding: 5px 10px;
   border-radius: 15px;
   font-size: 0.8em;
@@ -272,8 +257,8 @@ header a:hover {
 
 .projet-liens a {
   text-decoration: none;
-  color: #fff;
-  background-color: #007bff;
+  color: var(--background-light);
+  background-color: var(--primary-color);
   padding: 10px 20px;
   border-radius: 5px;
   font-weight: bold;
@@ -281,196 +266,18 @@ header a:hover {
 }
 
 .projet-liens a:hover {
-  background-color: #0056b3;
+  background-color: var(--primary-color-dark);
 }
 
-/* --- Contact Section --- */
+/* --- "Contact" Section --- */
 #contact {
-  padding: 80px 50px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-#contact p {
-  max-width: 600px;
-  margin-bottom: 30px;
-}
-
-.bouton-contact {
-  text-decoration: none;
-  color: #fff;
-  background-color: #28a745;
-  padding: 15px 30px;
-  border-radius: 5px;
-  font-weight: bold;
-  font-size: 1.1em;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-.bouton-contact:hover {
-  background-color: #218838;
-  transform: scale(1.05);
-}
-
-.liens-sociaux {
-  margin-top: 40px;
-}
-
-.liens-sociaux a {
-  text-decoration: none;
-  color: #333;
-  margin: 0 15px;
-  font-weight: bold;
-}
-
-.liens-sociaux a:hover {
-  text-decoration: underline;
-}
-
-/* --- Footer --- */
-footer {
-  text-align: center;
-  padding: 20px;
-  background-color: #333;
-  color: #fff;
-}
-
-/* --- Responsive Design & Hamburger Menu --- */
-
-/* We hide the hamburger icon on large screens by default */
-.hamburger-menu {
-  display: none;
-  cursor: pointer;
-}
-
-.hamburger-menu span {
-  display: block;
-  width: 25px;
-  height: 3px;
-  background-color: #333;
-  margin: 5px 0;
-}
-
-/* We use a Media Query for screens of 768px or less */
-@media (max-width: 768px) {
-  /* We hide the classic navigation */
-  header nav ul {
-    display: none;
-    flex-direction: column;
-    text-align: center;
-    width: 100%;
-  }
-
-  /* We make the hamburger icon appear */
-  .hamburger-menu {
-    display: block;
-  }
-
-  /* Style of the menu when it is active (open) */
-  header nav.nav-active ul {
-    display: flex;
-  }
-
-  body {
-    font-size: 16px;
-  }
-
-  /* We reduce the horizontal paddings to give more space to the content */
-  #a-propos,
-  #experiences,
-  #projets,
-  #contact {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-
-  /* --- "About" Section --- */
-  #a-propos {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  #a-propos img {
-    width: 200px;
-    height: 200px;
-    margin-bottom: 20px;
-  }
-
-  /* --- Experiences Timeline --- */
-  .timeline::after {
-    left: 20px;
-  }
-
-  .timeline-item {
-    width: 100%;
-    padding-left: 50px;
-    padding-right: 15px;
-  }
-
-  .timeline-item:nth-child(even),
-  .timeline-item:nth-child(odd) {
-    left: 0;
-  }
-
-  /* The ONLY rule for circles */
-  .timeline-item:nth-child(odd)::after,
-  .timeline-item:nth-child(even)::after {
-    left: 11.5px;
-    right: auto;
-    transform: none;
-  }
-
-  .contact-container {
-    flex-direction: column; /* Stack the columns vertically */
-    align-items: center; /* Center the columns */
-  }
-
-  #contact-form {
-    text-align: center;
-    width: 100%;
-  }
-
-  /* --- Font size adjustments for project detail pages on mobile --- */
-  .project-detail h1 {
-    /* Reduced from 2.8em */
-    font-size: 2.2em;
-  }
-
-  .project-content h2 {
-    /* Reduced from 1.8em */
-    font-size: 1.5em;
-  }
-
-  .project-content p,
-  .project-content ul {
-    /* Reduced from 1.1rem to match the body font size */
-    font-size: 1rem;
-  }
-}
-
-/* --- Scroll Animation --- */
-.section-hidden {
-  opacity: 0;
-  transform: translateY(50px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-
-.section-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* --- Section Contact (Refactor) --- */
-#contact {
-  background-color: #fff;
+  background-color: var(--background-light);
   padding: 80px 50px;
 }
 
 .contact-container {
   display: flex;
-  gap: 50px; /* Space between the two columns */
+  gap: 50px;
   max-width: 1100px;
   margin: 0 auto;
   align-items: flex-start;
@@ -478,29 +285,13 @@ footer {
 
 .contact-info,
 #contact-form {
-  flex: 1; /* Each column takes 50% of the space */
+  flex: 1;
 }
 
 .contact-info h2 {
   font-size: 2.5em;
-  margin-top: 0;
 }
 
-.liens-sociaux {
-  margin-top: 25px;
-}
-
-.liens-sociaux a {
-  color: #333;
-  margin-right: 20px;
-  transition: color 0.3s ease;
-}
-
-.liens-sociaux a:hover {
-  color: #007bff;
-}
-
-/* Form style */
 #contact-form .form-group {
   margin-bottom: 20px;
 }
@@ -519,15 +310,14 @@ footer {
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 1rem;
-  box-sizing: border-box; /* Important so that the padding does not increase the width */
+  box-sizing: border-box;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Improves UX by showing which field is selected */
 #contact-form input:focus,
 #contact-form textarea:focus {
   outline: none;
-  border-color: #007bff;
+  border-color: var(--primary-color);
   box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
 
@@ -536,8 +326,8 @@ footer {
   padding: 15px;
   font-size: 1.1em;
   font-weight: bold;
-  color: #fff;
-  background-color: #007bff;
+  color: var(--background-light);
+  background-color: var(--primary-color);
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -545,28 +335,42 @@ footer {
 }
 
 #contact-form button:hover {
-  background-color: #0056b3;
+  background-color: var(--primary-color-dark);
 }
 
-/* --- Project Detail Page Style --- */
+.liens-sociaux {
+  margin-top: 25px;
+}
+
+.liens-sociaux a {
+  color: var(--text-color);
+  margin-right: 20px;
+  transition: color 0.3s ease;
+}
+
+.liens-sociaux a:hover {
+  color: var(--primary-color);
+}
+
+/* ==========================================================================
+   4. Project Detail Page
+   ========================================================================== */
+
 .project-detail {
-  /* This will style the main article container */
   max-width: 900px;
-  margin: 40px auto; /* Add space top/bottom and center it */
-  padding: 20px;
-  background-color: #fff;
+  margin: 40px auto;
+  padding: 40px;
+  background-color: var(--background-light);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
 }
 
 .project-detail h1 {
-  /* Style for the main project title */
   font-size: 2.8em;
   margin-bottom: 10px;
 }
 
 .project-meta {
-  /* Style for the metadata (date, tech) */
   display: flex;
   gap: 20px;
   color: #666;
@@ -575,7 +379,6 @@ footer {
 }
 
 .project-hero-image {
-  /* Style for the main project image */
   width: 100%;
   max-height: 400px;
   object-fit: cover;
@@ -584,7 +387,6 @@ footer {
 }
 
 .project-content h2 {
-  /* Style for subheadings in the description */
   font-size: 1.8em;
   border-bottom: 2px solid #e0e0e0;
   padding-bottom: 10px;
@@ -593,20 +395,172 @@ footer {
 
 .project-content p,
 .project-content ul {
-  /* Style for the descriptive text */
-  line-height: 1.7;
   font-size: 1.1rem;
 }
 
 .back-link {
-  /* Style for the "Back to projects" link */
   display: inline-block;
   margin-top: 40px;
   font-weight: bold;
   text-decoration: none;
-  color: #007bff;
+  color: var(--primary-color);
 }
 
 .back-link:hover {
   text-decoration: underline;
+}
+
+
+/* ==========================================================================
+   5. Animations & Footer
+   ========================================================================== */
+
+/* --- Scroll Animation --- */
+.section-hidden {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.section-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- Footer --- */
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: var(--text-color);
+  color: var(--background-light);
+}
+
+/* ==========================================================================
+   6. Responsive Design (Media Queries)
+   ========================================================================== */
+
+/* --- Hamburger Menu (visible on mobile only) --- */
+.hamburger-menu {
+  display: none;
+  cursor: pointer;
+}
+
+.hamburger-menu span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: var(--text-color);
+  margin: 5px 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Hamburger animation to a cross */
+header nav.nav-active .hamburger-menu span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+header nav.nav-active .hamburger-menu span:nth-child(2) {
+  opacity: 0;
+}
+header nav.nav-active .hamburger-menu span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
+}
+
+
+@media (max-width: 768px) {
+  /* --- Global adjustments for mobile --- */
+  section h2 {
+    font-size: 2em;
+  }
+  
+  header {
+    padding: 15px 20px;
+  }
+  
+  #a-propos,
+  #experiences,
+  #projets,
+  #contact,
+  #competences {
+    padding: 60px 20px;
+  }
+
+  /* --- Mobile Navigation --- */
+  header nav ul {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 70%;
+    max-width: 300px;
+    height: 100vh;
+    background-color: var(--background-light);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  header nav.nav-active ul {
+    transform: translateX(0);
+  }
+
+  header nav li {
+    margin: 20px 0;
+  }
+
+  .hamburger-menu {
+    display: block;
+  }
+
+  /* --- Section adjustments for mobile --- */
+  #a-propos {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  #a-propos img {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 20px;
+  }
+
+  .timeline::after {
+    left: 20px;
+  }
+
+  .timeline-item {
+    width: 100%;
+    padding-left: 50px;
+    padding-right: 15px;
+  }
+
+  .timeline-item:nth-child(even),
+  .timeline-item:nth-child(odd) {
+    left: 0;
+  }
+
+  .timeline-item:nth-child(odd)::after,
+  .timeline-item:nth-child(even)::after {
+    left: 11.5px;
+    right: auto;
+    transform: none;
+  }
+  
+  .contact-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* --- Font size adjustments for project pages on mobile --- */
+  .project-detail h1 {
+    font-size: 2.2em;
+  }
+  .project-content h2 {
+    font-size: 1.5em;
+  }
+  .project-content p,
+  .project-content ul {
+    font-size: 1rem;
+  }
 }
