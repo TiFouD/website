@@ -1,0 +1,23 @@
+# Fichiers de configuration de l'IDE JetBrains (WebStorm, IntelliJ...)
+# Contient les paramètres de l'espace de travail, l'historique local, etc.
+/.idea/
+
+# Fichiers de module JetBrains
+*.iml
+
+# Fichiers système d'exploitation
+.DS_Store
+Thumbs.db
+
+# Archives (comme le .zip de vos favicons)
+# Il est préférable de ne garder que les fichiers dézippés.
+*.zip
+
+# Dépendances Node.js (Bonne pratique, même si vous ne les utilisez pas encore)
+/node_modules/
+npm-debug.log
+yarn-error.log
+
+# Fichiers d'environnement
+.env
+.env.local
