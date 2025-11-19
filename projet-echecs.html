@@ -1,141 +1,140 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Développement d'un jeu d'échecs en Java par Théo Asselin. Projet basé sur l'architecture MVC et une IA avec algorithme Minimax (Alpha-Bêta).">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description"
+          content="Développement d'un jeu d'échecs en Java par Théo Asselin. Projet basé sur l'architecture MVC et une IA avec algorithme Minimax (Alpha-Bêta).">
 
     <title>Projet Jeu d'Échecs (Java) - Théo Asselin</title>
-    <link rel="icon" type="image/png" href="assets/images/favicon-32x32.png" />
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="icon" type="image/png" href="assets/images/favicon-32x32.png"/>
+    <link rel="stylesheet" href="css/style.css"/>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
     <link
-      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
-      rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+            rel="stylesheet"
     />
-  </head>
+</head>
 
-  <body>
-    <header>
-      <h1>Théo Asselin</h1>
-      <nav>
+<body>
+<header>
+    <h1 class="typewriter">Théo Asselin</h1>
+    <nav>
         <div class="hamburger-menu">
-          <span></span>
-          <span></span>
-          <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
 
         <ul>
-          <ul>
-            <li><a href="index.html#a-propos">À propos</a></li>
-            <li><a href="index.html#experiences">Expériences</a></li>
-            <li><a href="index.html#projets">Projets</a></li>
-            <li><a href="index.html#contact">Contact</a></li>
-          </ul>
+                <li><a href="index.html#a-propos">À propos</a></li>
+                <li><a href="index.html#experiences">Expériences</a></li>
+                <li><a href="index.html#projets">Projets</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
         </ul>
-      </nav>
-    </header>
+    </nav>
+</header>
 
-      <main>
-        <article class="project-detail">
-          <h1>Jeu d'échecs avec IA (Java)</h1>
+<main>
+    <article class="project-detail">
+        <h1>Jeu d'échecs avec IA (Java)</h1>
 
-          <div class="project-meta">
+        <div class="project-meta">
             <span><strong>Date:</strong> 2025</span>
             <span
-              ><strong>Technologies:</strong> Java, Swing, POO, MVC,
+            ><strong>Technologies:</strong> Java, Swing, POO, MVC,
               Minimax</span
             >
-          </div>
+        </div>
 
-          <img
-            src="assets/images/echecs.jpg"
-            alt="Interface du jeu d'échecs en Java"
-            class="project-hero-image"
-          />
+        <img
+                src="assets/images/echecs.jpg"
+                alt="Interface du jeu d'échecs en Java"
+                class="project-hero-image"
+        />
 
-          <div class="project-content">
+        <div class="project-content">
             <h2>Architecture & Conception (MVC)</h2>
             <p>
-              Ce projet a été développé en Java en suivant une architecture
-              inspirée du modèle <strong>MVC (Modèle-Vue-Contrôleur)</strong>.
-              Cette approche garantit une séparation claire entre la logique du
-              jeu et son interface graphique. Le
-              <strong>Modèle</strong> (classes `Jeu`, `Plateau`, `Piece`) gère
-              l'état de la partie et toutes les règles, tandis que la
-              <strong>Vue/Contrôleur</strong> (`VueControleur`) s'occupe de
-              l'affichage et des interactions utilisateur. Pour assurer une mise
-              à jour efficace, le `Plateau` est `Observable` et notifie la
-              `VueControleur`, qui est `Observer`, de chaque changement d'état.
+                Ce projet a été développé en Java en suivant une architecture
+                inspirée du modèle <strong>MVC (Modèle-Vue-Contrôleur)</strong>.
+                Cette approche garantit une séparation claire entre la logique du
+                jeu et son interface graphique. Le
+                <strong>Modèle</strong> (classes `Jeu`, `Plateau`, `Piece`) gère
+                l'état de la partie et toutes les règles, tandis que la
+                <strong>Vue/Contrôleur</strong> (`VueControleur`) s'occupe de
+                l'affichage et des interactions utilisateur. Pour assurer une mise
+                à jour efficace, le `Plateau` est `Observable` et notifie la
+                `VueControleur`, qui est `Observer`, de chaque changement d'état.
             </p>
 
             <h2>Ma Contribution Spécifique</h2>
             <p>
-              Au sein de notre équipe de deux, ma responsabilité principale a
-              été la conception et l'implémentation du cœur du jeu :
+                Au sein de notre équipe de deux, ma responsabilité principale a
+                été la conception et l'implémentation du cœur du jeu :
             </p>
             <ul>
-              <li>
-                <strong>Modélisation Orientée Objet :</strong> J'ai conçu la
-                classe abstraite `Piece.java` et toutes ses sous-classes
-                (`Pion`, `Tour`, `Roi`, etc.). Chaque classe encapsule ses
-                propres règles de déplacement complexes, y compris les cas
-                spéciaux comme le roque, la prise en passant ou la promotion du
-                pion.
-              </li>
-              <li>
-                <strong>Logique de Déplacement :</strong> La méthode
-                `getMesDeplacementsPossibles()` a été au centre de mon travail.
-                J'ai développé la logique pour que chaque pièce puisse calculer
-                et retourner la liste de tous ses mouvements légaux à partir
-                d'une position donnée.
-              </li>
-              <li>
-                <strong>Interface et Affichage (Vue) :</strong> J'ai également
-                développé la partie affichage de `VueControleur`, responsable du
-                dessin de l'échiquier et de la mise à jour visuelle des pièces
-                (via `ImageIcon`) après chaque coup joué.
-              </li>
+                <li>
+                    <strong>Modélisation Orientée Objet :</strong> J'ai conçu la
+                    classe abstraite `Piece.java` et toutes ses sous-classes
+                    (`Pion`, `Tour`, `Roi`, etc.). Chaque classe encapsule ses
+                    propres règles de déplacement complexes, y compris les cas
+                    spéciaux comme le roque, la prise en passant ou la promotion du
+                    pion.
+                </li>
+                <li>
+                    <strong>Logique de Déplacement :</strong> La méthode
+                    `getMesDeplacementsPossibles()` a été au centre de mon travail.
+                    J'ai développé la logique pour que chaque pièce puisse calculer
+                    et retourner la liste de tous ses mouvements légaux à partir
+                    d'une position donnée.
+                </li>
+                <li>
+                    <strong>Interface et Affichage (Vue) :</strong> J'ai également
+                    développé la partie affichage de `VueControleur`, responsable du
+                    dessin de l'échiquier et de la mise à jour visuelle des pièces
+                    (via `ImageIcon`) après chaque coup joué.
+                </li>
             </ul>
 
             <h2>Intelligence Artificielle</h2>
             <p>
-              Pour offrir un adversaire à l'utilisateur, une IA a été
-              développée. Elle repose sur l'algorithme <strong>Minimax</strong>,
-              optimisé avec un élagage <strong>Alpha-Bêta</strong> pour réduire
-              l'espace de recherche. La performance de l'IA dépend d'une
-              fonction d'évaluation qui attribue un score à chaque position en
-              se basant sur la valeur matérielle des pièces et sur des tables de
-              positionnement (Piece-Square Tables) pour favoriser les placements
-              stratégiques.
+                Pour offrir un adversaire à l'utilisateur, une IA a été
+                développée. Elle repose sur l'algorithme <strong>Minimax</strong>,
+                optimisé avec un élagage <strong>Alpha-Bêta</strong> pour réduire
+                l'espace de recherche. La performance de l'IA dépend d'une
+                fonction d'évaluation qui attribue un score à chaque position en
+                se basant sur la valeur matérielle des pièces et sur des tables de
+                positionnement (Piece-Square Tables) pour favoriser les placements
+                stratégiques.
             </p>
 
             <h2>Fonctionnalités Clés</h2>
             <ul>
-              <li>Interface graphique complète développée avec Java Swing.</li>
-              <li>
-                Système de sauvegarde et de chargement de partie via un fichier
-                au format `.csv`.
-              </li>
-              <li>
-                Menu principal pour configurer une nouvelle partie (choix de la
-                couleur, niveau de difficulté de l'IA).
-              </li>
-              <li>
-                Validation des coups, incluant la détection d'auto-mise en échec
-                pour éviter les mouvements illégaux.
-              </li>
+                <li>Interface graphique complète développée avec Java Swing.</li>
+                <li>
+                    Système de sauvegarde et de chargement de partie via un fichier
+                    au format `.csv`.
+                </li>
+                <li>
+                    Menu principal pour configurer une nouvelle partie (choix de la
+                    couleur, niveau de difficulté de l'IA).
+                </li>
+                <li>
+                    Validation des coups, incluant la détection d'auto-mise en échec
+                    pour éviter les mouvements illégaux.
+                </li>
             </ul>
-          </div>
+        </div>
 
-          <a href="index.html#projets" class="back-link">Retour aux projets</a>
-        </article>
-      </main>
+        <a href="index.html#projets" class="back-link">Retour aux projets</a>
+    </article>
+</main>
 
-    <footer><p>&copy; 2025 Théo Asselin. Tous droits réservés.</p></footer>
+<footer><p>&copy; 2025 Théo Asselin. Tous droits réservés.</p></footer>
 
-    <script src="js/script.js" defer></script>
-  </body>
+<script src="js/script.js" defer></script>
+</body>
 </html>
