@@ -1,152 +1,157 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Découvrez LAN Scanner, une application Android de scan réseau en Kotlin et Jetpack Compose. Un projet de Théo Asselin pour le diagnostic homelab.">
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description"
+          content="Découvrez LAN Scanner, une application Android de scan réseau en Kotlin et Jetpack Compose. Un projet de Théo Asselin pour le diagnostic homelab.">
 
-  <title>Projet Android Wifi Scanner (Kotlin) - Théo Asselin</title>
-  <link rel="icon" type="image/png" href="assets/images/favicon-32x32.png" />
-  <link rel="stylesheet" href="css/style.css" />
+    <title>Projet Android Wifi Scanner (Kotlin) - Théo Asselin</title>
+    <link rel="icon" type="image/png" href="assets/images/favicon-32x32.png"/>
+    <link rel="stylesheet" href="css/style.css"/>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
-    rel="stylesheet"
-  />
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link
+            href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+            rel="stylesheet"
+    />
 </head>
 
 <body>
 <header>
-  <h1>Théo Asselin</h1>
-  <nav>
-    <div class="hamburger-menu">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
+    <h1>Théo Asselin</h1>
+    <nav>
+        <div class="hamburger-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
 
-    <ul>
-      <ul>
-        <li><a href="index.html#a-propos">À propos</a></li>
-        <li><a href="index.html#experiences">Expériences</a></li>
-        <li><a href="index.html#projets">Projets</a></li>
-        <li><a href="index.html#contact">Contact</a></li>
-      </ul>
-    </ul>
-  </nav>
+        <ul>
+            <ul>
+                <li><a href="index.html#a-propos">À propos</a></li>
+                <li><a href="index.html#experiences">Expériences</a></li>
+                <li><a href="index.html#projets">Projets</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </ul>
+    </nav>
 </header>
 
-  <main>
+<main>
     <article class="project-detail">
-      <h1>LAN Scanner (Application Android)</h1>
+        <h1>LAN Scanner (Application Android) <span
+                style="font-size: 0.5em; vertical-align: middle; background-color: #ffc107; color: #333; padding: 4px 8px; border-radius: 4px;">EN COURS</span>
+        </h1>
 
-      <div class="project-meta">
-        <span><strong>Date:</strong> 2025</span>
-        <span
-        ><strong>Technologies:</strong> Kotlin, Android, Jetpack Compose, MVVM,
+
+        <div class="project-meta">
+            <span><strong>Date:</strong> 2025</span>
+            <span
+            ><strong>Technologies:</strong> Kotlin, Android, Jetpack Compose, MVVM,
               Coroutines, Ktor, NSD</span
+            >
+        </div>
+
+        <img
+                src="assets/images/android_scanner.jpg"
+                alt="Interface du scanner de réseau Android"
+                class="project-hero-image"
+        />
+
+        <div class="project-content">
+            <h2>Objectif du projet</h2>
+            <p>
+                Ce projet a un double objectif : d'une part, maîtriser la stack de
+                développement Android moderne (Kotlin, Jetpack Compose, MVVM) et d'autre part,
+                construire un outil de diagnostic réseau fondamental pour l'administration d'un
+                futur homelab.
+            </p>
+            <p>
+                L'application sert de "tour de contrôle" mobile, permettant de
+                découvrir et d'identifier les appareils connectés sur le réseau local,
+                étape essentielle avant de gérer des serveurs, VM et conteneurs.
+            </p>
+
+            <h2>Architecture & Conception (MVVM)</h2>
+            <p>
+                L'application est construite sur une architecture
+                <strong>MVVM (Modèle-Vue-ViewModel)</strong> moderne pour une
+                séparation claire des responsabilités :
+            </p>
+            <ul>
+                <li>
+                    <strong>Vue (Jetpack Compose) :</strong> L'interface utilisateur est
+                    entièrement bâtie avec Jetpack Compose, le toolkit déclaratif
+                    moderne d'Android. La Vue (<code>MainActivity.kt</code>) ne fait
+                    qu'afficher l'état fourni par le ViewModel et lui remonte les
+                    actions de l'utilisateur.
+                </li>
+                <li>
+                    <strong>ViewModel (<code>MainViewModel.kt</code>) :</strong> C'est
+                    le cerveau de l'application. Il détient et gère l'état de l'UI
+                    (via <code>mutableStateOf</code>), gère la logique de haut niveau (ex:
+                    choisir entre le scan Freebox ou le scan générique) et survit aux
+                    changements de configuration.
+                </li>
+                <li>
+                    <strong>Modèle/Services :</strong> Des classes comme
+                    <code>FreeboxManager.kt</code> et <code>NetworkScanner.kt</code>
+                    gèrent la complexité technique (appels HTTP, scan de sockets,
+                    découverte NSD) et exposent des fonctions simples au ViewModel.
+                </li>
+            </ul>
+            <p>
+                La gestion de l'état (ex: <code>FreeboxAuthState</code>) utilise des
+                <strong>Sealed Classes</strong> pour créer une machine à états
+                propre, permettant à l'UI d'afficher distinctement un loader, une
+                erreur, ou un succès.
+            </p>
+
+            <h2>Défis Techniques et Apprentissages</h2>
+            <p>
+                Ce projet a été l'occasion de développer des compétences critiques en
+                développement Android :
+            </p>
+            <ul>
+                <li>
+                    <strong>Programmation Asynchrone (Coroutines) :</strong>
+                    Utilisation intensive de <code>viewModelScope</code> pour lier
+                    les tâches réseau au cycle de vie du ViewModel, et de
+                    <code>Dispatchers.IO</code> pour s'assurer que les scans lents
+                    ne bloquent jamais l'interface utilisateur.
+                </li>
+                <li>
+                    <strong>Consommation d'API (Ktor) :</strong> Ktor, une
+                    bibliothèque Kotlin-first, a été utilisée pour consommer l'API de
+                    la Freebox, gérer l'authentification (tokens de session) et
+                    parser le JSON (avec <code>kotlinx.serialization</code>).
+                </li>
+                <li>
+                    <strong>Découverte Réseau (NSD) :</strong> Implémentation de la
+                    découverte de services réseau (NSD) pour trouver l'API de la
+                    Freebox (<code>_fbx-api._tcp</code>) sans connaître son adresse
+                    IP au préalable.
+                </li>
+                <li>
+                    <strong>Scan Actif :</strong> Développement d'un scanner générique
+                    qui sonde les Sockets sur le réseau local pour trouver des
+                    appareils lorsque l'API du routeur n'est pas disponible.
+                </li>
+            </ul>
+        </div>
+        <a
+                href="https://github.com/TiFouD/android-LANScanner"
+                class="project-github-link"
+                target="_blank"
         >
-      </div>
+            Voir le code sur GitHub
+        </a>
 
-      <img
-        src="assets/images/android_scanner.jpg"
-        alt="Interface du scanner de réseau Android"
-        class="project-hero-image"
-      />
-
-      <div class="project-content">
-        <h2>Objectif du projet</h2>
-        <p>
-          Ce projet a un double objectif : d'une part, maîtriser la stack de
-          développement Android moderne (Kotlin, Jetpack Compose, MVVM) et d'autre part,
-          construire un outil de diagnostic réseau fondamental pour l'administration d'un
-          futur homelab.
-        </p>
-        <p>
-          L'application sert de "tour de contrôle" mobile, permettant de
-          découvrir et d'identifier les appareils connectés sur le réseau local,
-          étape essentielle avant de gérer des serveurs, VM et conteneurs.
-        </p>
-
-        <h2>Architecture & Conception (MVVM)</h2>
-        <p>
-          L'application est construite sur une architecture
-          <strong>MVVM (Modèle-Vue-ViewModel)</strong> moderne pour une
-          séparation claire des responsabilités :
-        </p>
-        <ul>
-          <li>
-            <strong>Vue (Jetpack Compose) :</strong> L'interface utilisateur est
-            entièrement bâtie avec Jetpack Compose, le toolkit déclaratif
-            moderne d'Android. La Vue (<code>MainActivity.kt</code>) ne fait
-            qu'afficher l'état fourni par le ViewModel et lui remonte les
-            actions de l'utilisateur.
-          </li>
-          <li>
-            <strong>ViewModel (<code>MainViewModel.kt</code>) :</strong> C'est
-            le cerveau de l'application. Il détient et gère l'état de l'UI
-            (via <code>mutableStateOf</code>), gère la logique de haut niveau (ex:
-            choisir entre le scan Freebox ou le scan générique) et survit aux
-            changements de configuration.
-          </li>
-          <li>
-            <strong>Modèle/Services :</strong> Des classes comme
-            <code>FreeboxManager.kt</code> et <code>NetworkScanner.kt</code>
-            gèrent la complexité technique (appels HTTP, scan de sockets,
-            découverte NSD) et exposent des fonctions simples au ViewModel.
-          </li>
-        </ul>
-        <p>
-          La gestion de l'état (ex: <code>FreeboxAuthState</code>) utilise des
-          <strong>Sealed Classes</strong> pour créer une machine à états
-          propre, permettant à l'UI d'afficher distinctement un loader, une
-          erreur, ou un succès.
-        </p>
-
-        <h2>Défis Techniques et Apprentissages</h2>
-        <p>
-          Ce projet a été l'occasion de développer des compétences critiques en
-          développement Android :
-        </p>
-        <ul>
-          <li>
-            <strong>Programmation Asynchrone (Coroutines) :</strong>
-            Utilisation intensive de <code>viewModelScope</code> pour lier
-            les tâches réseau au cycle de vie du ViewModel, et de
-            <code>Dispatchers.IO</code> pour s'assurer que les scans lents
-            ne bloquent jamais l'interface utilisateur.
-          </li>
-          <li>
-            <strong>Consommation d'API (Ktor) :</strong> Ktor, une
-            bibliothèque Kotlin-first, a été utilisée pour consommer l'API de
-            la Freebox, gérer l'authentification (tokens de session) et
-            parser le JSON (avec <code>kotlinx.serialization</code>).
-          </li>
-          <li>
-            <strong>Découverte Réseau (NSD) :</strong> Implémentation de la
-            découverte de services réseau (NSD) pour trouver l'API de la
-            Freebox (<code>_fbx-api._tcp</code>) sans connaître son adresse
-            IP au préalable.
-          </li>
-          <li>
-            <strong>Scan Actif :</strong> Développement d'un scanner générique
-            qui sonde les Sockets sur le réseau local pour trouver des
-            appareils lorsque l'API du routeur n'est pas disponible.
-          </li>
-        </ul>
-      </div> <a
-      href="https://github.com/TiFouD/android-LANScanner"
-      class="project-github-link"
-      target="_blank"
-    >
-      Voir le code sur GitHub
-    </a>
-
-      <a href="index.html#projets" class="back-link">Retour aux projets</a>
+        <a href="index.html#projets" class="back-link">Retour aux projets</a>
     </article>
-  </main>
+</main>
 
 <footer><p>&copy; 2025 Théo Asselin. Tous droits réservés.</p></footer>
 

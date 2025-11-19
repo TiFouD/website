@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description"
+          content="Documentation de l'infrastructure Homelab de Théo Asselin : NAS virtualisé, DevOps et IA locale sur Proxmox.">
+
+    <title>Infrastructure Homelab NAS & IA - Théo Asselin</title>
+    <link rel="icon" type="image/png" href="assets/images/favicon-32x32.png"/>
+    <link rel="stylesheet" href="css/style.css"/>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link
+            href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+            rel="stylesheet"
+    />
+</head>
+
+<body>
+<header>
+    <h1>Théo Asselin</h1>
+    <nav>
+        <div class="hamburger-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <ul>
+            <ul>
+                <li><a href="index.html#a-propos">À propos</a></li>
+                <li><a href="index.html#experiences">Expériences</a></li>
+                <li><a href="index.html#projets">Projets</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <article class="project-detail">
+        <h1>Homelab Hybride : NAS, DevOps & IA <span
+                style="font-size: 0.5em; vertical-align: middle; background-color: #ffc107; color: #333; padding: 4px 8px; border-radius: 4px;">EN COURS</span>
+        </h1>
+
+        <div class="project-meta">
+            <span><strong>Date:</strong> 2025</span>
+            <span><strong>Rôles:</strong> Architecte Système, SysAdmin</span>
+            <span><strong>Stack:</strong> Proxmox VE, OpenMediaVault, Docker, ZFS, WireGuard, Python (RAG)</span>
+        </div>
+
+        <img
+                src="assets/images/homelab_architecture.jpg"
+                alt="Schéma d'architecture du Homelab"
+                class="project-hero-image"
+                style="background-color: #f0f0f0; min-height: 300px; display: flex; align-items: center; justify-content: center; color: #555; border: 1px dashed #ccc;"
+                onerror="this.style.display='none'"
+        />
+
+        <div class="project-content">
+            <h2>Objectifs du Projet</h2>
+            <p>
+                Ce projet vise à consolider mes services numériques au sein d'une infrastructure domestique maîtrisée.
+                L'objectif principal est de transformer un Mini-PC en un serveur polyvalent agissant à la fois comme
+                <strong>NAS centralisé</strong>
+                pour mes données et comme plateforme de calcul pour mes pipelines <strong>DevOps</strong> et mes
+                expérimentations en <strong>IA locale</strong>.
+            </p>
+
+            <h2>Architecture Matérielle & Répartition des Rôles</h2>
+            <p>
+                L'infrastructure est divisée en deux nœuds physiques distincts pour séparer la gestion réseau du
+                stockage et du calcul :
+            </p>
+            <ul>
+                <li>
+                    <strong>Nœud Réseau (Raspberry Pi 5) :</strong>
+                    Il agit comme la porte d'entrée sécurisée du réseau. Indépendant du serveur principal, il assure la
+                    continuité de l'accès Internet et du filtrage DNS même lors des maintenances du serveur de calcul.
+                    <ul>
+                        <li><em>Services :</em> Pi-hole (Filtrage DNS), WireGuard (VPN) pour l'accès distant sécurisé.
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Nœud Calcul & Stockage (Mini-PC Intel N150) :</strong>
+                    C'est le cœur du système, orchestré par l'hyperviseur <strong>Proxmox VE</strong>. Il consolide les
+                    fonctions de stockage (NAS) et d'exécution d'applications (Docker/IA).
+                </li>
+            </ul>
+
+            <h2>Stratégie de Stockage & NAS Virtualisé</h2>
+            <p>
+                La fonction NAS est prioritaire. J'ai mis en place une architecture de stockage robuste permettant de
+                servir les fichiers à la fois aux utilisateurs (PC/Mac) et aux services internes (IA, Docker).
+            </p>
+            <ul>
+                <li><strong>Système de Fichiers ZFS :</strong> Les disques physiques sont gérés par ZFS sur l'hôte
+                    Proxmox, garantissant l'intégrité des données et permettant des snapshots instantanés.
+                </li>
+                <li><strong>NAS OpenMediaVault (OMV) :</strong> Une machine virtuelle dédiée exécute OMV. Elle accède au
+                    stockage via un disque virtuel optimisé et gère les partages réseaux.
+                </li>
+                <li><strong>Centralisation des Données :</strong> Ce NAS héberge tout : mes documents personnels, les
+                    volumes persistants de mes conteneurs Docker, et les datasets utilisés par l'IA.
+                </li>
+            </ul>
+
+            <h2>Intelligence Artificielle : Interroger le NAS</h2>
+            <p>
+                L'innovation majeure de ce lab est l'intégration d'un pipeline <strong>RAG (Retrieval-Augmented
+                Generation)</strong> local.
+            </p>
+            <ul>
+                <li><strong>Le Besoin :</strong> Pouvoir poser des questions en langage naturel sur le contenu de mes
+                    fichiers stockés sur le NAS (documentation technique, notes, PDF).
+                </li>
+                <li><strong>L'Implémentation :</strong>
+                    <ul>
+                        <li><em>Moteur d'inférence :</em> <strong>Ollama</strong> exécutant le modèle Phi-3 Mini
+                            (optimisé pour le CPU Intel N150).
+                        </li>
+                        <li><em>Indexation :</em> <strong>ChromaDB</strong> indexe les documents du NAS pour permettre à
+                            l'IA de trouver les passages pertinents avant de répondre.
+                        </li>
+                        <li><em>Interface :</em> Une application Web développée en Python permet de chatter avec mes
+                            documents.
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h2>Usine Logicielle (CI/CD)</h2>
+            <p>
+                Pour supporter le développement de l'application IA et l'administration système, une chaîne DevOps
+                complète est hébergée localement.
+            </p>
+            <ul>
+                <li><strong>Gestion de Code :</strong> Instance <strong>Gitea</strong> pour l'hébergement des dépôts
+                    Git.
+                </li>
+                <li><strong>Automatisation :</strong> Runners <strong>Gitea Actions</strong> configurés pour builder et
+                    déployer automatiquement les conteneurs Docker des applications développées.
+                </li>
+            </ul>
+        </div>
+
+        <a href="index.html#projets" class="back-link">Retour aux projets</a>
+    </article>
+</main>
+
+<footer><p>&copy; 2025 Théo Asselin. Tous droits réservés.</p></footer>
+
+<script src="js/script.js" defer></script>
+</body>
+</html>
