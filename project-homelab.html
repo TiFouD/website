@@ -16,6 +16,19 @@
             href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
             rel="stylesheet"
     />
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'base',
+            themeVariables: {
+                primaryColor: '#007bff',
+                lineColor: '#333',
+                mainBkg: '#fff',
+                darkMode: true
+            }
+        });
+    </script>
 </head>
 
 <body>
@@ -51,13 +64,100 @@
             <span><strong>Stack:</strong> Proxmox VE, OpenMediaVault, Docker, ZFS, WireGuard, Python (RAG)</span>
         </div>
 
-        <img
-                src="assets/images/homelab_architecture.jpg"
-                alt="Schéma d'architecture du Homelab"
-                class="project-hero-image"
-                style="background-color: #f0f0f0; min-height: 300px; display: flex; align-items: center; justify-content: center; color: #555; border: 1px dashed #ccc;"
-                onerror="this.style.display='none'"
-        />
+        <div class="mermaid" style="text-align: center; background-color: #1e1e1e; padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.3); overflow-x: auto;">
+            %%{
+            init: {
+            'theme': 'base',
+            'themeVariables': {
+            'primaryColor': '#2d2d2d',
+            'primaryTextColor': '#fff',
+            'primaryBorderColor': '#007bff',
+            'lineColor': '#c9d1d9',
+            'secondaryColor': '#2d2d2d',
+            'tertiaryColor': '#2d2d2d',
+            'mainBkg': '#1e1e1e',
+            'nodeBorder': '#fff',
+            'clusterBkg': '#ffffff05',
+            'clusterBorder': '#ffffff40',
+            'defaultLinkColor': '#c9d1d9',
+            'fontFamily': 'Lato',
+            'edgeLabelBackground': '#2d2d2d'
+            }
+            }
+            }%%
+            graph TD
+            subgraph Internet
+            Cloud("☁️ Internet / FAI")
+            end
+
+            %% Changement ici : direction LR pour faire un bandeau horizontal
+            subgraph ZoneRPi ["Zone Réseau (Raspberry Pi 5)"]
+            direction LR
+            RPi("Passerelle RPi 5"):::orange
+            PiHole("🛡️ Pi-hole DNS"):::dark
+            VPN("🔑 WireGuard VPN"):::dark
+            DDNS("🔄 Cloudflare DDNS"):::dark
+            end
+
+            subgraph ZonePVE ["Zone Calcul & Stockage (Intel N150)"]
+            direction TB
+            PVE("Hyperviseur Proxmox VE 8"):::blue
+
+            subgraph VM100 ["VM 100: Stockage"]
+            OMV("📂 NAS OpenMediaVault"):::blue
+            ZFS[("Disque ZFS Hôte")]:::grey
+            end
+
+            subgraph VM101 ["VM 101: Usine Logicielle"]
+            Docker("🐳 Docker Engine"):::blue
+            Gitea("Git & CI/CD"):::dark
+            NPM("Nginx Proxy Mgr"):::dark
+            end
+
+            subgraph VMIA ["IA Locale (RAG)"]
+            Ollama("🤖 Ollama (Phi-3)"):::blue
+            Chroma("🧠 ChromaDB"):::dark
+            UI("Interface Web"):::dark
+            end
+            end
+
+            %% Connexions Réseau (L'ordre aide aussi le layout)
+            Cloud <==>|"Port Forwarding"| RPi
+            RPi -->|"Filtrage DNS"| PVE
+
+            %% Services RPi
+            RPi --- PiHole
+            RPi --- VPN
+            RPi --- DDNS
+
+            %% Connexions Interne
+            PVE --- OMV
+            PVE --- Docker
+
+            %% Gestion Stockage
+            ZFS -.->|"VirtIO Passthrough"| OMV
+            OMV ==>|"NFS / SMB"| Docker
+            OMV ==>|"NFS"| Ollama
+
+            %% Flux IA
+            UI -->|"Requête"| Ollama
+            Ollama -->|"Contexte"| Chroma
+            Chroma -.->|"Indexation"| OMV
+
+            %% Définition des Classes de style
+            classDef orange fill:#e67e22,stroke:#fff,stroke-width:2px,color:white;
+            classDef blue fill:#007bff,stroke:#fff,stroke-width:2px,color:white;
+            classDef grey fill:#6c757d,stroke:#fff,stroke-width:2px,color:white;
+            classDef dark fill:#2d2d2d,stroke:#666,stroke-width:1px,color:#ddd;
+
+            %% Application des styles
+            style ZoneRPi color:#fff,stroke-dasharray: 5 5
+            style ZonePVE color:#fff,stroke-dasharray: 5 5
+            style VM100 color:#ccc
+            style VM101 color:#ccc
+            style VMIA color:#ccc
+            style Internet color:#fff,fill:transparent,stroke:none
+        </div>
 
         <div class="project-content">
             <h2>Objectifs du Projet</h2>
