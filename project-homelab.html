@@ -1,256 +1,216 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta name="description"
-          content="Documentation de l'infrastructure Homelab de Théo Asselin : NAS virtualisé, DevOps et IA locale sur Proxmox.">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+        content="Documentation de l'infrastructure Homelab de Théo Asselin : Serveur Debian 13 sur ASUS Zenbook, Docker, VPN Mesh et IA locale via NotebookLM.">
 
-    <title>Infrastructure Homelab NAS & IA - Théo Asselin</title>
-    <link rel="icon" type="image/png" href="assets/images/favicon-32x32.png"/>
-    <link rel="stylesheet" href="css/style.css"/>
+  <title>Infrastructure Homelab Zenbook Duo - Théo Asselin</title>
+  <link rel="icon" type="image/png" href="assets/images/favicon-32x32.png" />
+  <link rel="stylesheet" href="css/style.css" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com"/>
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-    <link
-            href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
-            rel="stylesheet"
-    />
-    <script type="module">
-        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
-        mermaid.initialize({
-            startOnLoad: true,
-            theme: 'base',
-            themeVariables: {
-                primaryColor: '#007bff',
-                lineColor: '#333',
-                mainBkg: '#fff',
-                darkMode: true
-            }
-        });
-    </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+    rel="stylesheet" />
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: 'base',
+      flowchart: {
+        useMaxWidth: true,
+        htmlLabels: true,
+        curve: 'basis'
+      },
+      themeVariables: {
+        primaryColor: '#007bff',
+        lineColor: '#c9d1d9',
+        mainBkg: '#1e1e1e',
+        clusterBkg: '#1e1e1e',
+        clusterBorder: '#333',
+        fontSize: '16px'
+      }
+    });
+  </script>
 </head>
 
 <body>
 <header>
-    <h1 class="typewriter">Théo Asselin</h1>
-    <nav>
-        <div class="hamburger-menu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-
-        <ul>
-                <li><a href="index.html#a-propos">À propos</a></li>
-                <li><a href="index.html#experiences">Expériences</a></li>
-                <li><a href="index.html#projets">Projets</a></li>
-                <li><a href="index.html#contact">Contact</a></li>
-        </ul>
-    </nav>
+  <h1 class="typewriter">Théo Asselin</h1>
+  <nav>
+    <ul>
+      <li><a href="index.html#a-propos">À propos</a></li>
+      <li><a href="index.html#experiences">Expériences</a></li>
+      <li><a href="index.html#projets">Projets</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
 </header>
 
 <main>
-    <article class="project-detail">
-        <h1>Homelab Hybride : NAS, DevOps & IA <span
-                style="font-size: 0.5em; vertical-align: middle; background-color: #ffc107; color: #333; padding: 4px 8px; border-radius: 4px;">EN COURS</span>
-        </h1>
+  <article class="project-detail">
+    <h1>Homelab Zenbook Duo : Serveur Bare-Metal & IA <span
+      style="font-size: 0.5em; vertical-align: middle; background-color: #28a745; color: #fff; padding: 4px 8px; border-radius: 4px;">OPÉRATIONNEL</span>
+    </h1>
 
-        <div class="project-meta">
-            <span><strong>Date:</strong> 2025</span>
-            <span><strong>Rôles:</strong> Architecte Système, SysAdmin</span>
-            <span><strong>Stack:</strong> Proxmox VE, OpenMediaVault, Docker, ZFS, WireGuard, Python (RAG)</span>
-        </div>
+    <div class="project-meta">
+      <span><strong>Date:</strong> 2026</span>
+      <span><strong>Rôles:</strong> Architecte Système, DevOps</span>
+      <span><strong>Stack:</strong> Debian 13 (Trixie), Docker, Tailscale, Nginx Proxy Manager, NotebookLM (RAG)</span>
+    </div>
 
-        <div class="mermaid" style="text-align: center; background-color: #1e1e1e; padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.3); overflow-x: auto;">
-            %%{
-            init: {
-            'theme': 'base',
-            'themeVariables': {
-            'primaryColor': '#2d2d2d',
-            'primaryTextColor': '#fff',
-            'primaryBorderColor': '#007bff',
-            'lineColor': '#c9d1d9',
-            'secondaryColor': '#2d2d2d',
-            'tertiaryColor': '#2d2d2d',
-            'mainBkg': '#1e1e1e',
-            'nodeBorder': '#fff',
-            'clusterBkg': '#ffffff05',
-            'clusterBorder': '#ffffff40',
-            'defaultLinkColor': '#c9d1d9',
-            'fontFamily': 'Lato',
-            'edgeLabelBackground': '#2d2d2d'
-            }
-            }
-            }%%
-            graph TD
-            subgraph Internet
-            Cloud("☁️ Internet / FAI")
-            end
+    <div class="mermaid" style="background-color: #1e1e1e; padding: 20px; border-radius: 8px; width: 100%;">
+      %%{init: {'theme': 'base', 'themeVariables': { 'clusterBkg': '#1e1e1e', 'clusterBorder': '#444'}}}%%
+      graph TB
+      subgraph Internet ["🌐 Accès Distant"]
+      Cloud("☁️ Cloud / Web")
+      Tailscale("🔑 Tailscale (VPN Mesh)"):::dark
+      end
 
-            %% Changement ici : direction LR pour faire un bandeau horizontal
-            subgraph ZoneRPi ["Zone Réseau (Raspberry Pi 5)"]
-            direction LR
-            RPi("Passerelle RPi 5"):::orange
-            PiHole("🛡️ Pi-hole DNS"):::dark
-            VPN("🔑 WireGuard VPN"):::dark
-            DDNS("🔄 Cloudflare DDNS"):::dark
-            end
+      subgraph Zenbook ["💻 Zenbook Duo (Debian 13)"]
+      OS("🐧 Debian 13 Bare-Metal<br/>(Optimisation GRUB)"):::blue
 
-            subgraph ZonePVE ["Zone Calcul & Stockage (Intel N150)"]
-            direction TB
-            PVE("Hyperviseur Proxmox VE 8"):::blue
+      subgraph Dash ["🏠 Interface & Accès"]
+      direction LR
+      Homepage("📑 Homepage"):::orange
+      SSH("📟 Accès SSH"):::dark
+      end
 
-            subgraph VM100 ["VM 100: Stockage"]
-            OMV("📂 NAS OpenMediaVault"):::blue
-            ZFS[("Disque ZFS Hôte")]:::grey
-            end
+      subgraph Docker ["🐳 Orchestration Docker"]
+      direction TB
 
-            subgraph VM101 ["VM 101: Usine Logicielle"]
-            Docker("🐳 Docker Engine"):::blue
-            Gitea("Git & CI/CD"):::dark
-            NPM("Nginx Proxy Mgr"):::dark
-            end
+      subgraph NAS_Group ["📂 Services NAS & Media"]
+      direction TB
+      Jellyfin("🎬 Jellyfin"):::dark
+      Komga("📚 Komga"):::dark
+      Immich("🖼️ Immich"):::dark
+      Paperless("📄 Paperless"):::dark
+      Mealie("🍳 Mealie"):::dark
+      end
 
-            subgraph VMIA ["IA Locale (RAG)"]
-            Ollama("🤖 Ollama (Phi-3)"):::blue
-            Chroma("🧠 ChromaDB"):::dark
-            UI("Interface Web"):::dark
-            end
-            end
+      subgraph Sec_Group ["🛡️ Zone Sécurisée"]
+      direction TB
+      Gluetun("🔒 Gluetun"):::orange
+      DL("📥 Téléchargements"):::dark
+      FB("📂 FileBrowser"):::dark
+      end
 
-            %% Connexions Réseau (L'ordre aide aussi le layout)
-            Cloud <==>|"Port Forwarding"| RPi
-            RPi -->|"Filtrage DNS"| PVE
+      subgraph Maint_Group ["🔧 Maintenance"]
+      direction LR
+      Dockge("🛠️ Dockge"):::blue
+      Dozzle("📜 Dozzle"):::blue
+      end
+      end
 
-            %% Services RPi
-            RPi --- PiHole
-            RPi --- VPN
-            RPi --- DDNS
+      subgraph Storage ["💾 Stockage & Backup"]
+      direction LR
+      SSD("🚀 SSD NVMe"):::grey
+      Script("⚙️ Backup"):::orange
+      Disque_Externe("🔒 Disque externe"):::grey
+      end
+      end
 
-            %% Connexions Interne
-            PVE --- OMV
-            PVE --- Docker
+      %% Connexions
+      Tailscale ==> OS
+      OS --> Dash
+      OS --> Docker
+      Docker --> Storage
 
-            %% Gestion Stockage
-            ZFS -.->|"VirtIO Passthrough"| OMV
-            OMV ==>|"NFS / SMB"| Docker
-            OMV ==>|"NFS"| Ollama
+      %% Styles CSS
+      classDef orange fill:#e67e22,stroke:#fff,stroke-width:1px,color:white;
+      classDef blue fill:#007bff,stroke:#fff,stroke-width:1px,color:white;
+      classDef grey fill:#6c757d,stroke:#fff,stroke-width:1px,color:white;
+      classDef dark fill:#2d2d2d,stroke:#666,stroke-width:1px,color:#ddd;
 
-            %% Flux IA
-            UI -->|"Requête"| Ollama
-            Ollama -->|"Contexte"| Chroma
-            Chroma -.->|"Indexation"| OMV
+      %% Écrase le orange automatique des clusters
+      style Internet fill:#1e1e1e,stroke:#444
+      style Zenbook fill:#1e1e1e,stroke:#444
+      style Dash fill:#1e1e1e,stroke:#444
+      style Docker fill:#1e1e1e,stroke:#444
+      style NAS_Group fill:#1e1e1e,stroke:#444
+      style Sec_Group fill:#1e1e1e,stroke:#444
+      style Maint_Group fill:#1e1e1e,stroke:#444
+      style Storage fill:#1e1e1e,stroke:#444
+    </div>
 
-            %% Définition des Classes de style
-            classDef orange fill:#e67e22,stroke:#fff,stroke-width:2px,color:white;
-            classDef blue fill:#007bff,stroke:#fff,stroke-width:2px,color:white;
-            classDef grey fill:#6c757d,stroke:#fff,stroke-width:2px,color:white;
-            classDef dark fill:#2d2d2d,stroke:#666,stroke-width:1px,color:#ddd;
+    <div class="project-content">
+      <h2>Présentation du Projet</h2>
+      <p>
+        Réutilisation d'un laptop <strong>ASUS Zenbook Duo</strong> en serveur domestique haute performance.
+        L'architecture repose sur une installation <strong>Bare-Metal de Debian 13</strong>, optimisée pour le matériel
+        mobile (gestion thermique, désactivation des écrans, retrait batterie). L'accès au serveur se fait
+        prinicpalement par <strong>SSH</strong> depuis plusieurs appareils via Tailscale.
+      </p>
 
-            %% Application des styles
-            style ZoneRPi color:#fff,stroke-dasharray: 5 5
-            style ZonePVE color:#fff,stroke-dasharray: 5 5
-            style VM100 color:#ccc
-            style VM101 color:#ccc
-            style VMIA color:#ccc
-            style Internet color:#fff,fill:transparent,stroke:none
-        </div>
+      <h2>Architecture Matérielle & Optimisations</h2>
+      <ul>
+        <li><strong>Hôte :</strong> Zenbook UX481FL (Intel i7, 16GB RAM).</li>
+        <li><strong>Optimisation Serveur :</strong> Paramétrage du <strong>GRUB</strong> pour stabiliser le lien
+          PCIe/NVMe et retrait physique de la batterie pour un fonctionnement 24/7 sécurisé.
+        </li>
+        <li><strong>Accès :</strong> Réseau maillé via <strong>Tailscale</strong>, permettant une administration
+          sécurisée sans ouverture de ports sur la Box Internet.
+        </li>
+      </ul>
 
-        <div class="project-content">
-            <h2>Objectifs du Projet</h2>
-            <p>
-                Ce projet vise à consolider mes services numériques au sein d'une infrastructure domestique maîtrisée.
-                L'objectif principal est de transformer un Mini-PC en un serveur polyvalent agissant à la fois comme
-                <strong>NAS centralisé</strong>
-                pour mes données et comme plateforme de calcul pour mes pipelines <strong>DevOps</strong> et mes
-                expérimentations en <strong>IA locale</strong>.
-            </p>
+      <h2>Services & Conteneurisation</h2>
+      <p>L'ensemble des services est orchestré par <strong>Docker</strong> via l'interface <strong>Dockge</strong> :</p>
+      <ul>
+        <li><strong>Page d'accueil :</strong> Homepage regroupant l'intégralité des services ainsi qu'une notification
+          si un service est hors ligne.
+        </li>
+        <li><strong>NAS :</strong>
+          <ul>
+            <li>Jellyfin avec accélération matérielle (Intel Quicksync) pour les films et séries</li>
+            <li>Komga pour la
+              gestion de bibliothèques de livres.
+            </li>
+            <li>Immich pour les photos et vidéos personnelles.</li>
+            <li>Paperless-ngx pour la dématérialisation de documents.</li>
+            <li>Mealie le gestionnaire de recettes de cuisines.</li>
+          </ul>
+        </li>
+        <li><strong>Sécurité :</strong> Stack isolée sous <strong>NordVPN (via Gluetun)</strong> pour les
+          téléchargements et l'explorateur de fichiers.
+        </li>
+        <li><strong>Maintenance :</strong> Dockge et Dozzle permettent une gestion et une visualisation rapide des
+          conteneurs.
+        </li>
+      </ul>
 
-            <h2>Architecture Matérielle & Répartition des Rôles</h2>
-            <p>
-                L'infrastructure est divisée en deux nœuds physiques distincts pour séparer la gestion réseau du
-                stockage et du calcul :
-            </p>
-            <ul>
-                <li>
-                    <strong>Nœud Réseau (Raspberry Pi 5) :</strong>
-                    Il agit comme la porte d'entrée sécurisée du réseau. Indépendant du serveur principal, il assure la
-                    continuité de l'accès Internet et du filtrage DNS même lors des maintenances du serveur de calcul.
-                    <ul>
-                        <li><em>Services :</em> Pi-hole (Filtrage DNS), WireGuard (VPN) pour l'accès distant sécurisé.
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <strong>Nœud Calcul & Stockage (Mini-PC Intel N150) :</strong>
-                    C'est le cœur du système, orchestré par l'hyperviseur <strong>Proxmox VE</strong>. Il consolide les
-                    fonctions de stockage (NAS) et d'exécution d'applications (Docker/IA).
-                </li>
-            </ul>
+      <h2>IA Contextuelle avec NotebookLM</h2>
+      <p>
+        L'originalité de ce lab repose sur l'utilisation de <strong>NotebookLM</strong> comme assistant d'administration
+        intelligent.
+      </p>
+      <ul>
+        <li><strong>Le concept :</strong> Une base de connaissances structurée en Markdown (architecture, configs,
+          procédures de secours) sert de source de vérité.
+        </li>
+        <li><strong>L'usage :</strong> L'IA indexe ces documents pour répondre instantanément à des questions de
+          diagnostic ou de configuration basées sur le contexte réel du serveur.
+        </li>
+        <li><strong>Maintenance :</strong> Les sources sont mises à jour manuellement lors des modifications majeures
+          pour garantir la précision des réponses.
+        </li>
+      </ul>
 
-            <h2>Stratégie de Stockage & NAS Virtualisé</h2>
-            <p>
-                La fonction NAS est prioritaire. J'ai mis en place une architecture de stockage robuste permettant de
-                servir les fichiers à la fois aux utilisateurs (PC/Mac) et aux services internes (IA, Docker).
-            </p>
-            <ul>
-                <li><strong>Système de Fichiers ZFS :</strong> Les disques physiques sont gérés par ZFS sur l'hôte
-                    Proxmox, garantissant l'intégrité des données et permettant des snapshots instantanés.
-                </li>
-                <li><strong>NAS OpenMediaVault (OMV) :</strong> Une machine virtuelle dédiée exécute OMV. Elle accède au
-                    stockage via un disque virtuel optimisé et gère les partages réseaux.
-                </li>
-                <li><strong>Centralisation des Données :</strong> Ce NAS héberge tout : mes documents personnels, les
-                    volumes persistants de mes conteneurs Docker, et les datasets utilisés par l'IA.
-                </li>
-            </ul>
+      <h2>Stratégie de Sauvegarde</h2>
+      <p>
+        Mise en place d'un script de <strong>backup sélectif</strong> automatique (tous les 3 jours) vers le disque
+        externe chiffré, avec rotation des archives et exclusion des médias lourds pour optimiser
+        l'espace.
+      </p>
+    </div>
 
-            <h2>Intelligence Artificielle : Interroger le NAS</h2>
-            <p>
-                L'innovation majeure de ce lab est l'intégration d'un pipeline <strong>RAG (Retrieval-Augmented
-                Generation)</strong> local.
-            </p>
-            <ul>
-                <li><strong>Le Besoin :</strong> Pouvoir poser des questions en langage naturel sur le contenu de mes
-                    fichiers stockés sur le NAS (documentation technique, notes, PDF).
-                </li>
-                <li><strong>L'Implémentation :</strong>
-                    <ul>
-                        <li><em>Moteur d'inférence :</em> <strong>Ollama</strong> exécutant le modèle Phi-3 Mini
-                            (optimisé pour le CPU Intel N150).
-                        </li>
-                        <li><em>Indexation :</em> <strong>ChromaDB</strong> indexe les documents du NAS pour permettre à
-                            l'IA de trouver les passages pertinents avant de répondre.
-                        </li>
-                        <li><em>Interface :</em> Une application Web développée en Python permet de chatter avec mes
-                            documents.
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-
-            <h2>Usine Logicielle (CI/CD)</h2>
-            <p>
-                Pour supporter le développement de l'application IA et l'administration système, une chaîne DevOps
-                complète est hébergée localement.
-            </p>
-            <ul>
-                <li><strong>Gestion de Code :</strong> Instance <strong>Gitea</strong> pour l'hébergement des dépôts
-                    Git.
-                </li>
-                <li><strong>Automatisation :</strong> Runners <strong>Gitea Actions</strong> configurés pour builder et
-                    déployer automatiquement les conteneurs Docker des applications développées.
-                </li>
-            </ul>
-        </div>
-
-        <a href="index.html#projets" class="back-link">Retour aux projets</a>
-    </article>
+    <a href="index.html#projets" class="back-link">Retour aux projets</a>
+  </article>
 </main>
 
-<footer><p>&copy; 2025 Théo Asselin. Tous droits réservés.</p></footer>
-
-<script src="js/script.js" defer></script>
+<footer><p>&copy; 2026 Théo Asselin. Tous droits réservés.</p></footer>
 </body>
 </html>
